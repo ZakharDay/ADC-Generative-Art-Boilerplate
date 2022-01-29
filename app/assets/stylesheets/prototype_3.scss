@@ -1,0 +1,57 @@
+.prototype_3 {
+  display: flex;
+  margin: auto;
+
+  .frame {
+    position: relative;
+    width: 1080px;
+    max-width: 1080px;
+    min-width: 1080px;
+    height: 1920px;
+    margin: auto;
+    background: black;
+    overflow: hidden;
+  }
+
+  .circle {
+    position: absolute;
+    // border-radius: 50%;
+    background-size: cover;
+
+    &.deepface-green-white {
+      background-image: image-url('deepface-green-white.png');
+    }
+
+    &.deepface-green-black {
+      background-image: image-url('deepface-green-black.png');
+    }
+
+    &.deepface-dark-green-white {
+      background-image: image-url('deepface-dark-green-white.png');
+    }
+
+    &.deepface-dark-green-black {
+      background-image: image-url('deepface-dark-green-black.png');
+    }
+
+    &.deepface-black {
+      background-image: image-url('deepface-black.png');
+    }
+
+    &.circle-black {
+      background-image: image-url('circle-black.png');
+    }
+
+    &.circle-white {
+      background-image: image-url('circle-white.png');
+    }
+
+    &.large-circle-black {
+      background-image: image-url('large-circle-black.png');
+    }
+
+    &.large-circle-white {
+      background-image: image-url('large-circle-white.png');
+    }
+  }
+}

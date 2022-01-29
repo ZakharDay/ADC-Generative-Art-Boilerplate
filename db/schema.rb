@@ -12,20 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2022_01_29_123517) do
 
-  create_table "comments", force: :cascade do |t|
-    t.integer "post_id"
-    t.text "body"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "prototypes", force: :cascade do |t|
     t.string "name"
     t.text "description"
