@@ -26,7 +26,7 @@ function createCircle(frame) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const container = document.getElementById('prototype_1')
+  const container = document.getElementsByClassName('prototype_1')[0]
   const frame = document.createElement('div')
   frame.classList.add('frame')
   container.appendChild(frame)
