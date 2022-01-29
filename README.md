@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# First setup
 
-Things you may want to cover:
+```
+git fetch --all
+git checkout examples
+bundle install
+yarn
+rails db:migrate
+rails db:seed
+```
 
-* Ruby version
+# Update
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+git checkout examples
+git pull origin examples
+rails db:seed
+```
