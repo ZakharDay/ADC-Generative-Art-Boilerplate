@@ -21,17 +21,39 @@ function createLargeWhiteCircle() {
     let settings
 
     if (circles.length) {
-      const firstCircleSide = circles[0]['types']['side']
+      const firstCircleVSide = circles[0]['types']['vSide']
+      const firstCircleHSide = circles[0]['types']['hSide']
       const firstCircleSize = circles[0]['types']['size']
 
-      const side = firstCircleSide == 'top' ? 'bottom' : 'top'
+      const vSide = firstCircleVSide == 'top' ? 'bottom' : 'top'
+      const hSide = firstCircleHSide == 'left' ? 'right' : 'left'
       const size = firstCircleSize == 'small' ? 'large' : 'small'
 
-      settings = createCircle(largeWhiteCircleModel.className, side, size, 1)
+      settings = createCircle(
+        largeWhiteCircleModel.className,
+        vSide,
+        hSide,
+        size,
+        1
+      )
     } else {
-      const side = sample(Object.keys(largeWhiteCircleModel['sides']))
+      const vSide = sample(
+        Object.keys(largeWhiteCircleModel['sides']['vSides'])
+      )
+
+      const hSide = sample(
+        Object.keys(largeWhiteCircleModel['sides']['hSides'])
+      )
+
       const size = sample(Object.keys(largeWhiteCircleModel['sizes']))
-      settings = createCircle(largeWhiteCircleModel.className, side, size, 1)
+
+      settings = createCircle(
+        largeWhiteCircleModel.className,
+        vSide,
+        hSide,
+        size,
+        1
+      )
     }
 
     circles.push(settings)
@@ -41,36 +63,37 @@ function createLargeWhiteCircle() {
   })
 }
 
-function createCircle(className, side, size, zIndex) {
+function createCircle(className, vSide, hSide, size, zIndex) {
   const frame = getFrame()
   const largeWhiteCircleStore = getLargeWhiteCircleStore()
   const circleElement = document.createElement('div')
   const circleType = circleModel['largeCircleWhite']
   circleElement.classList.add('circle')
 
-  const sideSettings = largeWhiteCircleModel['sides'][side]
+  const vSideSettings = largeWhiteCircleModel['sides'][vSide]
+  const hSideSettings = largeWhiteCircleModel['sides'][hSide]
   const sizeSettings = largeWhiteCircleModel['sizes'][size]
 
-  const diameter = getRandomArbitrary(sizeSettings['from'], sizeSettings['to'])
+  const diameterPercent = getRandomArbitrary(
+    sizeSettings['from'],
+    sizeSettings['to']
+  )
 
-  // должен быть разный алгоритм для верха и низа
-  // нужно считать либо от верха, либо от низа соотвественно
-  // учитывая диаметр
-  const top = getRandomArbitrary(sideSettings['y_from'], sideSettings['y_to'])
-  const left = getRandomArbitrary(sideSettings['x_from'], sideSettings['x_to'])
+  const diameter = (frame.getBoundingClientRect().width / 100) * diameterPercent
+  const shiftY = generateShiftYFromSide(vSide, diameter, circleElement)
+  const shiftX = generateShiftXFromSide(hSide, diameter, circleElement)
 
   const settings = {
     types: {
-      side,
+      vSide,
+      hSide,
       size
     },
-    top,
-    left,
+    shiftY,
+    shiftX,
     diameter
   }
 
-  circleElement.style.top = [top, 'px'].join('')
-  circleElement.style.left = [left, 'px'].join('')
   circleElement.style.width = [diameter, 'px'].join('')
   circleElement.style.height = [diameter, 'px'].join('')
   circleElement.style.zIndex = zIndex
@@ -79,6 +102,48 @@ function createCircle(className, side, size, zIndex) {
   frame.appendChild(circleElement)
 
   return settings
+}
+
+function generateShiftYFromSide(side, diameter, circleElement) {
+  const sideSettings = largeWhiteCircleModel['sides']['vSides'][side]
+
+  const shiftPercent = getRandomArbitrary(
+    sideSettings['from'],
+    sideSettings['to']
+  )
+
+  const shift = (diameter / 100) * shiftPercent
+
+  // console.log(circleElement, side, shiftPercent, shift)
+
+  if (side === 'top') {
+    circleElement.style.top = ['-', shift, 'px'].join('')
+  } else if (side === 'bottom') {
+    circleElement.style.bottom = ['-', shift, 'px'].join('')
+  }
+
+  return shift
+}
+
+function generateShiftXFromSide(side, diameter, circleElement) {
+  const sideSettings = largeWhiteCircleModel['sides']['hSides'][side]
+
+  const shiftPercent = getRandomArbitrary(
+    sideSettings['from'],
+    sideSettings['to']
+  )
+
+  const shift = (diameter / 100) * shiftPercent
+
+  // console.log(circleElement, side, shiftPercent, shift)
+
+  if (side === 'left') {
+    circleElement.style.left = ['-', shift, 'px'].join('')
+  } else if (side === 'right') {
+    circleElement.style.right = ['-', shift, 'px'].join('')
+  }
+
+  return shift
 }
 
 function generateStory() {

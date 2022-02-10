@@ -1,27 +1,35 @@
 const largeWhiteCircleModel = {
   className: 'large-circle-white',
   sides: {
-    top: {
-      x_from: -100,
-      x_to: 980,
-      y_from: -100,
-      y_to: 900
+    vSides: {
+      top: {
+        from: 30,
+        to: 70
+      },
+      bottom: {
+        from: 30,
+        to: 70
+      }
     },
-    bottom: {
-      x_from: -100,
-      x_to: 980,
-      y_from: 700,
-      y_to: 1720
+    hSides: {
+      left: {
+        from: 0,
+        to: 60
+      },
+      right: {
+        from: 0,
+        to: 60
+      }
     }
   },
   sizes: {
     small: {
-      from: 400,
-      to: 900
+      from: 50,
+      to: 110
     },
     large: {
-      from: 900,
-      to: 1500
+      from: 60,
+      to: 190
     }
   }
 }
