@@ -14,6 +14,14 @@
   {
     name: 'Forth',
     description: 'About'
+  },
+  {
+    name: 'Promises',
+    description: 'About'
+  },
+  {
+    name: 'Back to art',
+    description: 'About'
   }
 ]
 

@@ -3,6 +3,7 @@ class PrototypesController < ApplicationController
 
   # GET /prototypes or /prototypes.json
   def index
+    # sleep 10
     @prototypes = Prototype.all
   end
 
