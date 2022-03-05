@@ -1,0 +1,27 @@
+body.prototype_body_11 {
+  // perspective: 100px;
+  overflow: hidden;
+
+  .prototype_11 {
+    perspective: 1000px;
+  }
+
+  div {
+    // transform: translate3d(0, 0, 0) scale(1);
+    // animation-duration: 1500ms;
+    // animation-name: placeRect;
+    // animation-timing-function: ease-out;
+  }
+}
+
+@keyframes placeRect {
+  from {
+    transform: translate3d(0, -100px, 0) scale(6);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+  }
+}
