@@ -22,6 +22,22 @@
   {
     name: 'Back to art',
     description: 'About'
+  },
+  {
+    name: 'Squares',
+    description: 'About'
+  },
+  {
+    name: 'Fresco 1',
+    description: 'About'
+  },
+  {
+    name: 'Fresco 2',
+    description: 'About'
+  },
+  {
+    name: 'Fresco 3',
+    description: 'About'
   }
 ]
 
