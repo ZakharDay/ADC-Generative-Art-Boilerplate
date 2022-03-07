@@ -46,6 +46,18 @@
   {
     name: 'Fresco 4',
     description: 'About'
+  },
+  {
+    name: 'Fresco 5',
+    description: 'About'
+  },
+  {
+    name: 'Fresco 6',
+    description: 'About'
+  },
+  {
+    name: 'Fresco 7',
+    description: 'About'
   }
 ]
 
