@@ -43,6 +43,10 @@
     name: 'Mouse events',
     description: 'About'
   },
+  {
+    name: 'Fresco 4',
+    description: 'About'
+  }
 ]
 
 def seed

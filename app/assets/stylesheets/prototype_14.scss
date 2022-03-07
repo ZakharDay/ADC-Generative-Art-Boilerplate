@@ -1,0 +1,57 @@
+body.prototype_body_14 {
+  display: flex;
+  background-color: black;
+
+  .prototype_14 {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    perspective: 100px;
+  }
+
+  .gridCell {
+    width: 12.5vw;
+    height: 12.5vw;
+    // position: absolute;
+    // transform: translate3d(0, 0, 0) scale(1);
+    // animation-duration: 1500ms;
+    // animation-name: placeRect;
+    // animation-timing-function: ease-out;
+  }
+
+  .painting {
+    width: 100%;
+    height: 100%;
+    animation-duration: 1500ms;
+    animation-name: fadeIn;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+
+    &.fadeOut {
+      animation-duration: 1500ms;
+      animation-name: fadeOut;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
