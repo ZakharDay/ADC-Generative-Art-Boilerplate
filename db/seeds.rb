@@ -58,6 +58,14 @@
   {
     name: 'Fresco 7',
     description: 'About'
+  },
+  {
+    name: 'Fresco 8',
+    description: 'About'
+  },
+  {
+    name: 'Fresco 8 React',
+    description: 'About'
   }
 ]
 
