@@ -66,6 +66,10 @@
   {
     name: 'Fresco 8 React',
     description: 'About'
+  },
+  {
+    name: 'Save image',
+    description: 'About'
   }
 ]
 
