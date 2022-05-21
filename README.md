@@ -9,6 +9,7 @@ bundle install
 yarn
 rails db:migrate
 rails db:seed
+rails s
 ```
 
 Then open http://localhost:3000/prototypes
@@ -22,4 +23,7 @@ To run this experiment series get an mp3 or m4a file, copy it to public folder a
 git checkout examples
 git pull origin examples
 rails db:seed
+rails s
 ```
+
+Then open http://localhost:3000/prototypes
