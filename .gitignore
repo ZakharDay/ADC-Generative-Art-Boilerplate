@@ -27,6 +27,8 @@
 !/storage/.keep
 
 /public/assets
+/public/*.mp3
+/public/*.m4a
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.

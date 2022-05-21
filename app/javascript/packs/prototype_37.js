@@ -1,0 +1,114 @@
+import p5 from 'p5'
+
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min
+}
+
+// From Gist
+// https://gist.github.com/jkohlin/b574145ca23d272a683f34e3c211154b
+let audio = new Audio()
+// audio.src = '/macbeth.mp3'
+audio.src = '/manifest-1.m4a'
+audio.load()
+
+let audioContext
+let analyser
+
+function getDataFromAudio() {
+  // analyser.fftSize = 2048;
+  analyser.fftSize = 256
+  var freqByteData = new Uint8Array(analyser.fftSize / 2)
+  var timeByteData = new Uint8Array(analyser.fftSize / 2)
+  analyser.getByteFrequencyData(freqByteData)
+  analyser.getByteTimeDomainData(timeByteData)
+  return { f: freqByteData, t: timeByteData }
+}
+// End Code Gist
+
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementsByClassName('prototype_37')[0]
+  const frame = document.createElement('div')
+  frame.classList.add('frame')
+  frame.id = 'frame'
+  container.appendChild(frame)
+
+  const button = document.createElement('div')
+  button.innerText = 'PLAY'
+  container.appendChild(button)
+
+  button.addEventListener('click', () => {
+    audioContext = new AudioContext()
+    analyser = audioContext.createAnalyser()
+    analyser.connect(audioContext.destination)
+    let source = audioContext.createMediaElementSource(audio)
+    source.connect(analyser)
+    audio.play()
+  })
+
+  const canvasSize = 900
+  const cells = 110
+  const cellSize = canvasSize / cells
+
+  let coef = 0
+  let coef2 = 0
+
+  let sketch = (p) => {
+    p.setup = () => {
+      const canvas = p.createCanvas(canvasSize, canvasSize)
+      canvas.parent('frame')
+
+      p.frameRate(24)
+    }
+
+    p.draw = () => {
+      let audioData = { f: [255, 255, 255], t: [255, 255, 255] }
+
+      if (!audio.paused) {
+        audioData = getDataFromAudio()
+        coef = audioData.f
+        coef2 = audioData.t
+        // console.log(audioData.t[0])
+      }
+
+      p.background(0)
+      p.noFill()
+      p.strokeWeight(2)
+      p.stroke(audioData.f[0], audioData.f[3], audioData.f[7])
+
+      for (var row = 0; row < cells; row++) {
+        const top = row * cellSize
+
+        for (var column = 0; column < cells; column++) {
+          const left = (column + 1) * cellSize
+
+          if (column === 0) {
+            p.beginShape()
+            p.vertex(left, top)
+          } else {
+            // const entropy = coef[column] / 18
+            // const shift = getRandomArbitrary(-entropy, entropy)
+            const centerCol = column <= cells / 2 ? cells - column : column
+            const centerRow = row <= cells / 2 ? cells - row : row
+            const entropy = (coef[centerCol] / 30) * (coef[centerRow] / 30)
+            const shift = getRandomArbitrary(-entropy, entropy)
+
+            p.bezierVertex(
+              left,
+              top + shift,
+              left,
+              top + shift,
+              left,
+              top + shift
+            )
+          }
+
+          if (column === cells - 2) {
+            p.endShape()
+          }
+        }
+      }
+    }
+  }
+
+  let myp5 = new p5(sketch)
+})
