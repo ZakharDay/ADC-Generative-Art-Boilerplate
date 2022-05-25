@@ -146,6 +146,26 @@
   {
     name: 'P5 Displacement 5 With Audio v3 From Center',
     description: 'About'
+  },
+  {
+    name: 'P5 Transitions 1 Linear Move',
+    description: 'About'
+  },
+  {
+    name: 'P5 Transitions 2 Linear Move With Time Control',
+    description: 'About'
+  },
+  {
+    name: 'P5 Transitions 3 Infinity Move',
+    description: 'About'
+  },
+  {
+    name: 'P5 Transitions 4 x, y, r',
+    description: 'About'
+  },
+  {
+    name: 'P5 Transitions 5 Two Cycles With Frequency',
+    description: 'About'
   }
 ]
 

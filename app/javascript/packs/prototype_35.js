@@ -17,8 +17,8 @@ let analyser
 function getDataFromAudio() {
   // analyser.fftSize = 2048;
   analyser.fftSize = 64
-  var freqByteData = new Uint8Array(analyser.fftSize / 2)
-  var timeByteData = new Uint8Array(analyser.fftSize / 2)
+  let freqByteData = new Uint8Array(analyser.fftSize / 2)
+  let timeByteData = new Uint8Array(analyser.fftSize / 2)
   analyser.getByteFrequencyData(freqByteData)
   analyser.getByteTimeDomainData(timeByteData)
   return { f: freqByteData, t: timeByteData }
@@ -85,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
             p.vertex(left, top)
           } else {
             // const entropy = coef[column] / 18
-            // const shift = getRandomArbitrary(-entropy, entropy)
             const entropy = coef[column] / (coef2[column] / 10)
             const shift = getRandomArbitrary(-entropy, entropy)
 
