@@ -19,7 +19,7 @@ export default class Slider extends PureComponent {
       <div className="Slider">
         <h3>{name}</h3>
         <div className="sliderInput">
-          <span>0</span>
+          <span>{min}</span>
           <input
             ref={this.input}
             type="range"
@@ -29,7 +29,7 @@ export default class Slider extends PureComponent {
             value={value}
             onInput={this.handleChange}
           />
-          <span>100</span>
+          <span>{max}</span>
         </div>
       </div>
     )
