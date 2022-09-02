@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :set_prototype, only: %i[ show edit update destroy ]
+  before_action :set_prototype, only: %i[ show stream edit update destroy ]
 
   # GET /prototypes or /prototypes.json
   def index
@@ -9,6 +9,44 @@ class PrototypesController < ApplicationController
 
   # GET /prototypes/1 or /prototypes/1.json
   def show
+    # if @prototype.id === 47
+    #   arduino = ArduinoService.new
+    #   # data = arduino.get_data
+    #   arduino.create_data_stream
+    #
+    #   # logger.debug "======="
+    #   # logger.debug data
+    #   # logger.debug "======="
+    #
+    #   # ActionCable.server.broadcast 'prototype47_channel', { data: data }.as_json
+    #
+    #   # while s = arduino.get_data
+    #   #   logger.debug "======="
+    #   #   logger.debug s
+    #   #   logger.debug "======="
+    #   # end
+    # end
+  end
+
+  def stream
+    if @prototype.id === 47 || @prototype.id === 50
+      arduino = ArduinoService.new
+      # data = arduino.get_data
+      arduino.create_data_stream
+
+      # logger.debug "======="
+      # logger.debug data
+      # logger.debug "======="
+
+      # ActionCable.server.broadcast 'prototype47_channel', { data: data }.as_json
+
+      # while s = arduino.get_data
+      #   logger.debug "======="
+      #   logger.debug s
+      #   logger.debug "======="
+      # end
+      render json: {}
+    end
   end
 
   # GET /prototypes/new

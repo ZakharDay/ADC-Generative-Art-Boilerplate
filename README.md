@@ -12,10 +12,7 @@ rails db:seed
 rails s
 ```
 
-Then open http://localhost:3000/prototypes
-
-## P5 Displacement 5 With Audio
-To run this experiment series get an mp3 or m4a file, copy it to public folder and change path in a prototype script you use (prototype_35.js, prototype_36.js, prototype_37.js).
+Then open http://localhost:3000
 
 # Update
 
@@ -26,4 +23,14 @@ rails db:seed
 rails s
 ```
 
-Then open http://localhost:3000/prototypes
+Then open http://localhost:3000
+
+# Notes
+
+## P5 Displacement 5 With Audio
+
+To run this experiment series get an mp3 or m4a file, copy it to public folder and change path in a prototype script you use (prototype_35.js, prototype_36.js, prototype_37.js).
+
+## Arduino Connect Test
+
+To run this experiment you need to have an Arduino, connect it and set up in the code.

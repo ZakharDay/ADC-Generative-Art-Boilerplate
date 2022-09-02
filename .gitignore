@@ -27,7 +27,7 @@
 !/storage/.keep
 
 /public/assets
-/public/prototypes/samples
+/public/prototypes
 /public/*.mp3
 /public/*.m4a
 .byebug_history

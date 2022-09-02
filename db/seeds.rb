@@ -166,6 +166,46 @@
   {
     name: 'P5 Transitions 5 Two Cycles With Frequency',
     description: 'About'
+  },
+  {
+    name: 'Tone+P5 First Test',
+    description: 'About'
+  },
+  {
+    name: 'Tone+P5 Tone Synth to Analyser to P5',
+    description: 'About'
+  },
+  {
+    name: 'Tone+P5 New Melody',
+    description: 'About'
+  },
+  {
+    name: 'Tone+P5 4 Instruments With P5',
+    description: 'About'
+  },
+  {
+    name: 'Arduino Connect Test',
+    description: 'About'
+  },
+  {
+    name: 'Performance Prototype: Laser Sensors Simulator',
+    description: 'About'
+  },
+  {
+    name: 'Performance Prototype: Abstract Figures',
+    description: 'About'
+  },
+  {
+    name: 'Performance Prototype: Laser Sensors',
+    description: 'About'
+  },
+  {
+    name: 'Performance Prototype: Laser Sensors Simulator 2',
+    description: 'About'
+  },
+  {
+    name: 'Circles for a show',
+    description: 'About'
   }
 ]
 
